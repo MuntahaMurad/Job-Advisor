@@ -1,62 +1,73 @@
 # AI‑Job‑Advisor
 
-An AI‑powered system to help both candidates and recruiters make better decisions across the hiring journey.
+> An AI‑powered system that helps candidates and recruiters make better decisions across the hiring journey.
+
+<p align="center">
+  <img src="logo.jpg" alt="AI‑Job‑Advisor Logo" width="220">
+</p>
 
 ---
 
-## What This Project Does
+## Overview
 
-This project brings together three inter‑linked capabilities in one unified workflow:
+AI‑Job‑Advisor brings together three complementary capabilities in one workflow:
 
--   **Resume Ranking**: The system analyzes uploaded candidate resumes against a given job description (JD) and computes a relevance score. Beyond ranking, it explains strengths, gaps, and improvement suggestions.
--   **CV Generation / Tailoring**: Given a candidate’s current CV and a target role/JD, the system produces a tailored draft of the CV (or targeted bullet‑point suggestions) aligned with the job.
--   **Interactive Web Interface**: A minimal web application lets users upload a JD + resume, view scores and insights, and optionally generate a revised CV.
+- **Resume Ranking** — Analyze a candidate’s resume against a target job description (JD) and produce a relevance score with strengths, gaps, and concrete improvement tips.
+- **CV Generation / Tailoring** — Draft or tailor a role‑specific CV from an existing resume and the JD, aligning language to required skills and outcomes.
+- **Interactive Web App** — A lightweight interface where users upload a resume and JD, view scores/explanations, and (optionally) generate a refined CV.
 
----
-
-## Core Concepts & Workflow
-
-1. **Document Ingestion & Normalization**Resumes and JDs (PDFs, Docs, text) are parsed and segmented into structured parts (skills, experience, education, tools).
-2. **Representation & Matching**The content is converted into model‑friendly formats (e.g., embeddings or engineered features). The system compares candidate signals with job signals and outputs a match score, gap analysis, and rationale.
-3. **Advisory Generation**Using large language models or prompt‑engineered techniques, the system generates user‑facing feedback such as:
-    - “You’re missing skill X for this role”
-    - “Your bullet point on Project Y could re‑phrase to emphasise outcome”
-4. **User Experience**
-   Through the web front end, users upload materials, receive instant alignment scores, view personalised feedback, and (for candidates) download tailored CV versions.
+<p align="center">
+  <img src="A.png" alt="High‑level System Diagram" />
+</p>
 
 ---
 
-## Repository Structure
+## How It Works (Conceptual)
+
+1. **Ingestion & Normalization** — Parse resumes/JDs into structured sections (skills, tools, experience, education).
+2. **Representation** — Convert text into model‑friendly representations (feature sets, embeddings, or prompt‑engineered summaries).
+3. **Matching & Scoring** — Compare candidate signals with JD signals; output a **match score**, highlights of overlaps/gaps, and red‑yellow‑green flags.
+4. **Advisory Generation** — Use LLM‑style prompts to generate candidate‑facing guidance (missing skills, phrasing improvements, targeted bullets).
+5. **User Experience** — The web app surfaces upload, ranking results, explanations, and tailored CV drafts.
+
+---
+
+## Repository Layout (at a glance)
 
 ```
-resume ranking/
-    Notebooks and scripts for parsing, feature extraction and ranking logic
-cv gen/
-    Assets and notebooks dedicated to CV generation and tailoring for roles
-web‑app/
-    Front‑end code to interact with the system (upload, view results, generate CV)
+resume ranking/   # Parsing, feature extraction, and ranking logic (notebooks & scripts)
+cv gen/           # Assets and notebooks for CV drafting/tailoring
+web-app/          # Front-end code to interact with models (upload, scoring, CV generation)
+A.png             # Architecture / flow image
+logo.jpg          # Project logo
+demo-video.mp4    # Short demo clip
 ```
 
 ---
 
-## Why It Matters
+## Typical Use Cases
 
--   **For Recruiters**: Enables faster, more consistent short‑listing of candidates with transparent explanations.
--   **For Candidates**: Helps you understand where you fall short for a target role and how to improve your CV language to match the job.
--   **Duplicable Workflow**: The separation of modelling, generation and UI components makes it easy to adapt the system for different roles, industries or jurisdictions.
-
----
-
-## Design Philosophy
-
--   **Transparency**: Rather than a “black‑box score”, each recommendation is explained so users understand _what_ matched and _why_.
--   **Modularity**: Model logic (notebooks) is separated from user interface code (web‑app), making the system easier to iterate and maintain.
--   **Experiment‑driven**: Heavy use of notebooks indicates a research‑first workflow—tune features, prompts, ranking criteria then deploy into UI.
+- **For recruiters:** Quickly shortlist candidates for a role with transparent explanations and consistent criteria.
+- **For candidates:** Diagnose gaps against a JD and generate a targeted CV version aligned to the role.
 
 ---
 
-## Limitations & Considerations
+## Design Principles
 
--   **Parsing Quality**: Inaccurate extraction (poorly formatted resumes/JDs) will impact alignment quality.
--   **Bias & Ethics**: Automated ranking must be audited for fairness, avoiding unintended bias in short‑listing.
--   **CV Honesty**: Tailored CVs should always reflect the candidate’s true experience and not mislead.
+- **Transparency first** — Provide rationales for scores and suggestions.
+- **Separation of concerns** — Modeling/evaluation in notebooks; interaction in a small web app; content generation in CV tooling.
+- **Experiment‑driven** — Heavy use of notebooks reflects an iterative approach to refining features, prompts, and scoring criteria.
+
+---
+
+## Considerations & Ethics
+
+- **Data quality:** Parsing imperfect resumes/JDs can introduce noise; clean formatting improves outcomes.
+- **Bias & fairness:** Any automated screening must be audited and paired with human oversight.
+- **Grounding & honesty:** CV generation should remain faithful to the candidate’s true history.
+
+---
+
+## Acknowledgements
+
+This repository combines notebook‑driven experimentation with a simple UI to make AI‑assisted hiring workflows easier to explore and evaluate.
