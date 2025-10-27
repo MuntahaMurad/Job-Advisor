@@ -17,7 +17,10 @@ AI‑Job‑Advisor brings together three complementary capabilities in one workf
 - **Interactive Web App** — A lightweight interface where users upload a resume and JD, view scores/explanations, and (optionally) generate a refined CV.
 
 <p align="center">
-  <img src="A.png" alt="High‑level System Diagram" />
+  <video width="600" controls>
+    <source src="demo-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 </p>
 
 ---
@@ -38,7 +41,6 @@ AI‑Job‑Advisor brings together three complementary capabilities in one workf
 resume ranking/   # Parsing, feature extraction, and ranking logic (notebooks & scripts)
 cv gen/           # Assets and notebooks for CV drafting/tailoring
 web-app/          # Front-end code to interact with models (upload, scoring, CV generation)
-A.png             # Architecture / flow image
 logo.jpg          # Project logo
 demo-video.mp4    # Short demo clip
 ```
